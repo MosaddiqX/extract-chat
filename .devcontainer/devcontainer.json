@@ -1,8 +1,7 @@
 {
-  "name": "Minimal Node.js Workspace",
-  "image": "mcr.microsoft.com/devcontainers/javascript-node:1-22-bookworm",
+  "name": "Minimal Python Workspace",
+  "image": "mcr.microsoft.com/devcontainers/python:3.11-bookworm",
   "features": {
-    "ghcr.io/devcontainers-extra/features/jshint:2": {},
     "ghcr.io/devcontainers/features/git:1": {},
     "ghcr.io/devcontainers/features/github-cli:1": {}
   },
@@ -13,22 +12,22 @@
         "workbench.editor.decorations.badges": false,
         "workbench.editor.highlightModifiedTabs": false,
         "workbench.startupEditor": "none",
-        "workbench.activityBar.visible": false, // Hide activity bar
-        "workbench.statusBar.visible": false, // Hide status bar
+        "workbench.activityBar.visible": false,
+        "workbench.statusBar.visible": false,
         "workbench.sideBar.location": "right",
-        "workbench.sideBar.visible": false, // Hide side bar
+        "workbench.sideBar.visible": false,
         "explorer.autoReveal": false,
         "explorer.compactFolders": false,
-        "explorer.openEditors.visible": 1, // Hide open editors
+        "explorer.openEditors.visible": 1,
         "editor.scrollbar.verticalScrollbarSize": 1,
         "editor.scrollbar.horizontalScrollbarSize": 1,
         "window.menuBarVisibility": "compact",
         "window.zoomLevel": 1,
         "window.titleBarStyle": "custom",
-        "editor.minimap.enabled": false, // Hide minimap
+        "editor.minimap.enabled": false,
         "editor.renderWhitespace": "boundary",
         "editor.renderLineHighlight": "none",
-        "breadcrumbs.enabled": false, // Hide breadcrumbs
+        "breadcrumbs.enabled": false,
         "editor.fontFamily": "'Fira Code', 'JetBrains Mono', Menlo, Monaco, 'Courier New', monospace",
         "editor.fontLigatures": "'ss01', 'ss02', 'calt', 'dlig'",
         "editor.fontSize": 16,
@@ -43,53 +42,43 @@
             }
           ]
         },
-
         // Formatting & Linting
         "editor.formatOnSave": true,
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
         "editor.cursorBlinking": "expand",
         "editor.cursorSmoothCaretAnimation": "on",
         "files.trimTrailingWhitespace": true,
         "files.insertFinalNewline": true,
-        "files.autoSave": "onWindowChange", // Save on window change instead of focus change
-        "[javascript]": {
-          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        "files.autoSave": "onWindowChange",
+        "[python]": {
+          "editor.defaultFormatter": "ms-python.python"
         },
         "[json]": {
           "editor.defaultFormatter": "vscode.json-language-features"
         },
-
+        "python.formatting.provider": "black",
         // Terminal Customizations
         "terminal.integrated.fontSize": 14,
         "terminal.integrated.lineHeight": 1.2,
         "terminal.integrated.cursorStyle": "line",
         "terminal.integrated.fontFamily": "'Fira Code', monospace",
-
         // Visual Enhancements
-        "editor.lineNumbers": "off", // No line numbers
-        "workbench.editor.showTabs": "none", // Hide tabs
-
+        "editor.lineNumbers": "off",
+        "workbench.editor.showTabs": "none",
         // Word Wrap
-        "editor.wordWrap": "on", // Enable word wrap
-
+        "editor.wordWrap": "on",
         // Theme
         "workbench.colorTheme": "Catppuccin Mocha",
         "workbench.iconTheme": "fira-code-material-icon-theme"
       },
       "extensions": [
+        "ms-python.python",
+        "ms-python.pylance",
         "Catppuccin.catppuccin-vsc",
-        "aleleba.fira-code-material-icon-theme",
-        "esbenp.prettier-vscode",
-        "xabikos.JavaScriptSnippets",
-        "miguelsolorio.fluent-icons",
-        "WallabyJs.quokka-vscode",
-        "ms-vscode.vscode-typescript-next",
-        "ritwickdey.LiveServer",
-        "Vantesh.one-dark-sweet"
+        "aleleba.fira-code-material-icon-theme"
       ]
     }
   },
-  "postCreateCommand": "npm install",
+  "postCreateCommand": "pip install -r requirements.txt",
   "forwardPorts": [],
-  "remoteUser": "node"
+  "remoteUser": "vscode"
 }
